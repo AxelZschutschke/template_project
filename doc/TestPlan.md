@@ -61,23 +61,23 @@ of style guides is formulated.
 
 ### Style Guide
 
-1) naming of source files for test:
+1. naming of source files for test:
     <unit_name>Test.cpp e.g. JSONParser.cpp
-2) creating stubs/mocks/fakes
+2. creating stubs/mocks/fakes
     <unit_name>Fake.h e.g. JSONParserFake.h
-3) test classes / suites are named by their class under test:
+3. test classes / suites are named by their class under test:
     <unit_name>Test<_specific_aspect> e.g. JSONParserTest_Strings
-4) a test name is assembled like 
+4. a test name is assembled like 
     <scenario>_<expectedBehavior> e.g. whenValidStringEntered_shallConstructJSONStringObject
-5) camel cases for testnames start lowerCase
-6) camel cases for any class names start UpperCase
-7) tests do not contain logic (if, for, while, switch are bad)
-8) tests only test agains public methods containing logic, esp. simple setters/getters are not tested!
-9) tests shall be consistent (no random, time- or hardware dependend data shall be used for checking)
-10) tests shall be independend of each other, e.g. shall not change the state of the test system
-11) use the arrange-act-assert pattern and dont mix up asserts with method calls
-12) for test code, refer to the code style guide
-13) test code shall be commented with care
+5. camel cases for testnames start lowerCase
+6. camel cases for any class names start UpperCase
+7. tests do not contain logic (if, for, while, switch are bad)
+8. tests only test agains public methods containing logic, esp. simple setters/getters are not tested!
+9. tests shall be consistent (no random, time- or hardware dependend data shall be used for checking)
+10. tests shall be independend of each other, e.g. shall not change the state of the test system
+11. use the arrange-act-assert pattern and dont mix up asserts with method calls
+12. for test code, refer to the code style guide
+13. test code shall be commented with care
   
 ## System Test
 

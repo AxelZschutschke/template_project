@@ -26,10 +26,15 @@ started with a capital letter and continued camel case. Interfaces get an capita
 Namespaces are used for each sub-module individually and may be nested. A special namespace is Test, encapsulating
 all test related definitions and test cases.
 
-Namespace names are started with capital letter and continued in camel case like: `MyLongNamespace`
+Namespace names are started with lower case letter and continued in camel case like: `myLongNamespace`
 
 Namespaces should be documented briefly, to do this only once, please create (if not existing) a header file with
 the same name (e.g. Namespace.h), declaring and document the namespace in there.
+
+~~~~~.cpp
+namespace {
+}
+~~~~~
 
 ## Classes
 
@@ -42,6 +47,13 @@ Define only one class per file and use the class name as the filename, e.g. the 
 file `Parser.h`. Classes should be nested in namespaces. Test files and test classes affilitated to the original are
 named accordingly with a \*Test or \*Fake or \*Stub attached, e.g. the file `ParserTest.cpp` could contain the `class
  ParserTest` and the respective test methods.
+
+~~~~~.cpp
+namespace {
+  class ClassName {
+  };
+}
+~~~~~
 
 ## Methods
 
@@ -57,6 +69,23 @@ Method names start with a lower case letter and continue with camel case (if the
 e.g. for constructors) . Underscores and other special characters shall not be used (if not mandatory, e.g. destructors
 or operators). An exception for this rule are test names, which contain an underscore character to seperate the scenario
 and expectation part.
+
+~~~~~.cpp
+namespace {
+  class ClassName {
+    ClassName() 
+    {}
+    ~ClassName() 
+    {}
+
+    int method( int const & input ) const 
+    {}
+  };
+
+  int freeFunction( std::string const & input ) 
+  {}
+}
+~~~~~
 
 ## Statements
 
