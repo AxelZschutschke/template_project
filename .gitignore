@@ -1,6 +1,7 @@
 ~*
 *.swp
 build/*
+gh-pages/*
 
 # Prerequisites
 *.d
