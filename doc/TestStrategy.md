@@ -362,7 +362,7 @@ announcing the issue to users.
 | role | name | email |
 | ---- | ---- | ----- |
 | product manager (PM) | | |
-| test manager (PM) | | |
+| test manager (TM) | | |
 | test architect (TA) | | |
 | chief architect (CA) | | |
 | product owner (PO) | | |
