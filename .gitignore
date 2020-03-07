@@ -2,6 +2,7 @@
 *.swp
 build/*
 gh-pages/*
+CDash/*
 
 # Prerequisites
 *.d
