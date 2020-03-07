@@ -121,7 +121,7 @@ graph {
 }
 \enddot
 
-## Functional Requirements {#FunctionalRequirements}
+# Functional Requirements {#FunctionalRequirements}
 
 The aggregation of all aspects of the software describing what it does. Legal
 and safety aspects are referred to as functional requirements as well.
@@ -135,7 +135,7 @@ persons or equipment
 **legal** the system shall not contradict applicable law with respect to
 license and other obligations
 
-## Security Requirements {#SecurityRequirements}
+# Security Requirements {#SecurityRequirements}
 
 Extend to which the system is protected against deliberate and intrusive
 faults from internal or external sources
@@ -149,7 +149,7 @@ modification of its internal state from internal or external sources
 **available** timely extend to which the system is available for
 the users interaction and provides its functionality
 
-## Maintainable Requirements {#MaintainableRequirements}
+# Maintainable Requirements {#MaintainableRequirements}
 
 Extend to which the system is open for change and further development and
 changes are traceable and easy to apply.
@@ -167,7 +167,7 @@ diagnosis and maintenance
 while leaving the rest of the system intact b) extending its functionality c) deploying
 it to new environment d) scaling it to new load conditions
 
-## Reliabiltiy Requirements {#ReliableRequirements}
+# Reliabiltiy Requirements {#ReliableRequirements}
 
 Able of the system to maintain its performance level for fixed and
 predefined conditions over a given amount of time.
@@ -180,7 +180,7 @@ after failures
 
 **available** the amount of system failures over time 
 
-## Useable Requirements {#UseableRequirements}
+# Useable Requirements {#UseableRequirements}
 
 Extend to which the system software helps the user to easily set up, configure
 and use the system.
@@ -202,7 +202,7 @@ including well structured documentation.
 **adequacy** the system shall provide the adequate functionality easily, meaning
 with low user interaction required and shall present expected behavior.
 
-## Efficiency Requirements {#EfficiencyRequirements}
+# Efficiency Requirements {#EfficiencyRequirements}
 
 Extend to which the system is interacting with the hardware and time resources.
 
@@ -211,7 +211,7 @@ Extend to which the system is interacting with the hardware and time resources.
 **resource utilization** during operation at different load levels and during
 standby and idle mode, incl. cpu, memory, disk, network, ...
 
-## Portable Requirements {#PortableRequirements}
+# Portable Requirements {#PortableRequirements}
 
 Effort to bring the system to a different environment.
 
