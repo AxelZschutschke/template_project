@@ -1,6 +1,6 @@
 # Test Plan {#TestPlan}
 
-\tableofcontents
+[TOC]
 
 # Overview 
 

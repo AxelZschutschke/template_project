@@ -1,5 +1,7 @@
 # Test Documentation {#Test}
 
+[TOC]
+
 # Overview
 
 This section contains all test related project documentation, from definitions to generated test reports.

@@ -1,6 +1,6 @@
 # Test Strategy {#TestStrategy}
 
-\tableofcontents
+[TOC]
 
 # Overview 
 
