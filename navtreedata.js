@@ -2,18 +2,20 @@ var NAVTREE =
 [
   [ "Template Project", "index.html", [
     [ "Overview", "index.html#autotoc_md23", null ],
+    [ "Status", "index.html#autotoc_md24", null ],
+    [ "License", "index.html#autotoc_md25", null ],
     [ "Architecture Documentation", "C1_Overview.html", "C1_Overview" ],
     [ "Test Documentation", "TestDocumentation.html", "TestDocumentation" ],
     [ "Code Style Guide", "StyleGuide.html", [
-      [ "Overview", "StyleGuide.html#autotoc_md25", [
-        [ "Tooling", "StyleGuide.html#autotoc_md26", null ]
+      [ "Overview", "StyleGuide.html#autotoc_md27", [
+        [ "Tooling", "StyleGuide.html#autotoc_md28", null ]
       ] ],
-      [ "Rules", "StyleGuide.html#autotoc_md27", [
-        [ "Files", "StyleGuide.html#autotoc_md28", null ],
-        [ "Namespaces", "StyleGuide.html#autotoc_md29", null ],
-        [ "Classes", "StyleGuide.html#autotoc_md30", null ],
-        [ "Methods", "StyleGuide.html#autotoc_md31", null ],
-        [ "Statements", "StyleGuide.html#autotoc_md32", null ]
+      [ "Rules", "StyleGuide.html#autotoc_md29", [
+        [ "Files", "StyleGuide.html#autotoc_md30", null ],
+        [ "Namespaces", "StyleGuide.html#autotoc_md31", null ],
+        [ "Classes", "StyleGuide.html#autotoc_md32", null ],
+        [ "Methods", "StyleGuide.html#autotoc_md33", null ],
+        [ "Statements", "StyleGuide.html#autotoc_md34", null ]
       ] ]
     ] ],
     [ "Definitions", "Definitions.html", [
