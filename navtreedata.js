@@ -1,7 +1,7 @@
 var NAVTREE =
 [
   [ "template-project", "index.html", [
-    [ "Template Project", "index.html", "index" ],
+    [ "Template Project", "TemplateProject.html", "TemplateProject" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ]

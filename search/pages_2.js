@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['definitions',['Definitions',['../Definitions.html',1,'index']]],
+  ['definitions',['Definitions',['../Definitions.html',1,'TemplateProject']]],
   ['doxygen',['Doxygen',['../Doxygen.html',1,'Tools']]]
 ];

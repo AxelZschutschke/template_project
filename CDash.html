@@ -88,32 +88,32 @@ $(document).ready(function(){initNavTree('CDash.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md85">Overview</a><ul><li class="level2"><a href="#autotoc_md86">Get CDash</a></li>
-<li class="level2"><a href="#autotoc_md87">Set up CMake Project</a></li>
-<li class="level2"><a href="#autotoc_md88">Ship Results</a></li>
+<ul><li class="level1"><a href="#autotoc_md86">Overview</a><ul><li class="level2"><a href="#autotoc_md87">Get CDash</a></li>
+<li class="level2"><a href="#autotoc_md88">Set up CMake Project</a></li>
+<li class="level2"><a href="#autotoc_md89">Ship Results</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md85"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md86"></a>
 Overview</h1>
 <p>CDash is a dashboard tool developed by KitWare and released as BSD-3 open source tool. Albeit having a little dated looks, it is still a valuable addition to CMake based build chains.</p>
 <p>How to set up a dockerized cdash / ctest environment:</p>
-<h2><a class="anchor" id="autotoc_md86"></a>
+<h2><a class="anchor" id="autotoc_md87"></a>
 Get CDash</h2>
 <p>Clone the <a href="https://github.com/Kitware/CDash.git">git repository</a> to your local machine and edit the <em>docker-compose.yml</em> file to your needs. Especially change the User and Admin accounts and passwords accordingly.</p>
 <p>Example (probably not fit for production):</p>
 <div class="fragment"><div class="line">version: &#39;3.3&#39;</div><div class="line">services:</div><div class="line">  cdash:</div><div class="line">    image: &quot;kitware/cdash&quot;</div><div class="line">    build: .</div><div class="line">    depends_on:</div><div class="line">      - mysql</div><div class="line">    links:</div><div class="line">      - mysql</div><div class="line">    ports:</div><div class="line">     - &quot;8080:80&quot;</div><div class="line">    environment:</div><div class="line">      CDASH_ROOT_ADMIN_PASS: mysecret</div><div class="line"></div><div class="line"></div><div class="line">      CDASH_CONFIG: |</div><div class="line">        $$CDASH_DB_HOST = &#39;mysql&#39;;</div><div class="line">        $$CDASH_DB_NAME = &#39;cdash&#39;;</div><div class="line">        $$CDASH_DB_TYPE = &#39;mysql&#39;;</div><div class="line">        $$CDASH_DB_LOGIN = &#39;root&#39;;</div><div class="line">        $$CDASH_DB_PORT = &#39;&#39;;</div><div class="line">        $$CDASH_DB_PASS = &#39;&#39;;</div><div class="line">        $$CDASH_DB_CONNECTION_TYPE = &#39;host&#39;;</div><div class="line"></div><div class="line">      CDASH_STATIC_USERS: |</div><div class="line">        ADMIN root@domain.de mysecret</div><div class="line"></div><div class="line">        ADMIN axel@domain.de mysecret</div><div class="line"></div><div class="line">        USER group@clt.de clt</div><div class="line"></div><div class="line">  mysql:</div><div class="line">    image: &quot;mysql/mysql-server:5.5&quot;</div><div class="line">    environment:</div><div class="line">      MYSQL_ALLOW_EMPTY_PASSWORD: &#39;yes&#39;</div><div class="line">      MYSQL_ROOT_PASSWORD: &#39;&#39;</div><div class="line">      MYSQL_DATABASE: &#39;cdash&#39;</div><div class="line">      MYSQL_ROOT_HOST: &#39;%&#39;</div></div><!-- fragment --><p>And build / start the cdash environment via <code>docker-compose up</code></p>
 <p>This will build the docker environment and starts up an mysql docker and a cdash docker, which is not yet fit for login. During this initial setup, no users have been created. Fix this using <code>docker-compose run --rm cdash install configure</code>.</p>
 <p>This will update the mysql <em>cdash</em> database accordingly and add all required tables in the correct version. It will also enter the user accounts as specified in the compose file.</p>
-<h2><a class="anchor" id="autotoc_md87"></a>
+<h2><a class="anchor" id="autotoc_md88"></a>
 Set up CMake Project</h2>
 <p>Taken from <a href="https://cmake.org/cmake/help/v3.3/module/CTest.html">cmake.org</a></p>
 <p>To main <em>CMakeLists.txt</em>, add the CTest module:</p>
 <div class="fragment"><div class="line">project(MyProject)</div><div class="line">...</div><div class="line">include(CTest)</div></div><!-- fragment --><p>The module automatically creates a <em>BUILD_TESTING</em> option that selects whether to enable testing support (ON by default). After including the module, use code like:</p>
 <div class="fragment"><div class="line">if(BUILD_TESTING)</div><div class="line">  # ... CMake code to create tests ...</div><div class="line">endif()</div></div><!-- fragment --><p>To creating tests when testing is enabled.</p>
 <p>To enable submissions to a CDash server, create a <em>CTestConfig.cmake</em> file at the top of the project with content such as:</p>
-<div class="fragment"><div class="line">set(CTEST_PROJECT_NAME &quot;MyProject&quot;)</div><div class="line">set(CTEST_NIGHTLY_START_TIME &quot;01:00:00 UTC&quot;)</div><div class="line">set(CTEST_DROP_METHOD &quot;http&quot;)</div><div class="line">set(CTEST_DROP_SITE &quot;my.cdash.org&quot;)</div><div class="line">set(CTEST_DROP_LOCATION &quot;/submit.php?project=MyProject&quot;)</div><div class="line">set(CTEST_DROP_SITE_CDASH TRUE)</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md88"></a>
+<div class="fragment"><div class="line">set(CTEST_PROJECT_NAME &quot;MyProject&quot;)</div><div class="line">set(CTEST_NIGHTLY_START_TIME &quot;01:00:00 UTC&quot;)</div><div class="line">set(CTEST_DROP_METHOD &quot;http&quot;)</div><div class="line">set(CTEST_DROP_SITE &quot;my.cdash.org&quot;)</div><div class="line">set(CTEST_DROP_LOCATION &quot;/submit.php?project=MyProject&quot;)</div><div class="line">set(CTEST_DROP_SITE_CDASH TRUE)</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md89"></a>
 Ship Results</h2>
 <p>Use cmake (or ccmake) for configuration of your project. This also enables the ctest environment. For further building testing and submitting, use ctest targets directly, e.g. <code>ctest -D Experimental</code>, this will build, test and submit all results automatically. The steps can be carried out manually as well, refer to the ctest manual. </p>
 </div></div><!-- contents -->
@@ -121,7 +121,7 @@ Ship Results</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="index.html">Template Project</a></li><li class="navelem"><a class="el" href="Tools.html">Used Tools</a></li>
+    <li class="navelem"><a class="el" href="TemplateProject.html">Template Project</a></li><li class="navelem"><a class="el" href="Tools.html">Used Tools</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
