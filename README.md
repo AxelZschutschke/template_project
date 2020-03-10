@@ -1,11 +1,6 @@
-# Template Project {#TemplateProject}
+# Template Project
 
-# Overview
+C++ template project containing some basic test / documentation and CMake/CTest files, so one can start up a new project
+more easily.
 
-C++ template project containing some basic test / documentation
-
-* \subpage C1_Overview
-* \subpage TestDocumentation
-* \subpage StyleGuide
-* \subpage Definitions
-* \subpage Tools
+Please find the generated documentation on [github pages](https://axelzschutschke.github.io/template_project/)

@@ -845,6 +845,7 @@ RECURSIVE              = YES
 EXCLUDE                = ${PROJECT_SOURCE_DIR}/vendor
 EXCLUDE               += ${PROJECT_SOURCE_DIR}/build
 EXCLUDE               += ${PROJECT_SOURCE_DIR}/build-clang
+EXCLUDE               += ${PROJECT_SOURCE_DIR}/README.md
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
@@ -953,7 +954,7 @@ FILTER_SOURCE_PATTERNS =
 # (index.html). This can be useful if you have a project on for instance GitHub
 # and want to reuse the introduction page also for the doxygen output.
 
-USE_MDFILE_AS_MAINPAGE = README.md
+USE_MDFILE_AS_MAINPAGE = {PROJECT_SOURCE_DIR}/doc/MAIN.md
 
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
