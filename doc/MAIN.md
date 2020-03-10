@@ -1,4 +1,4 @@
-# Template Project {#TemplateProject}
+# Template Project {#Main}
 
 # Overview
 
