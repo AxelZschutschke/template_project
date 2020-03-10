@@ -1,6 +1,6 @@
-var index =
+var Main =
 [
-    [ "Overview", "index.html#autotoc_md23", null ],
+    [ "Overview", "Main.html#autotoc_md23", null ],
     [ "Architecture Documentation", "C1_Overview.html", "C1_Overview" ],
     [ "Test Documentation", "TestDocumentation.html", "TestDocumentation" ],
     [ "Code Style Guide", "StyleGuide.html", [
