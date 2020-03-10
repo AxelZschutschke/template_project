@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 17)
-project(template-project VERSION 1.0.0 LANGUAGES CXX)
+project("Template Project" VERSION 1.0.0 LANGUAGES CXX)
 
 option( COMPILE_TESTS      "Enable tests"              ON)
 option( COMPILE_EXAMPLES   "Enable examples"           ON)
