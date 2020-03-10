@@ -88,51 +88,51 @@ $(document).ready(function(){initNavTree('Valgrind.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md103">Overview</a><ul><li class="level2"><a href="#autotoc_md104">Get Valgrind</a></li>
-<li class="level2"><a href="#autotoc_md105">Using Valgrind</a></li>
-<li class="level2"><a href="#autotoc_md106">Memcheck</a></li>
-<li class="level2"><a href="#autotoc_md107">Cachegrind</a></li>
-<li class="level2"><a href="#autotoc_md108">Callgrind</a></li>
-<li class="level2"><a href="#autotoc_md109">Massiv</a></li>
-<li class="level2"><a href="#autotoc_md110">Helgrind</a></li>
-<li class="level2"><a href="#autotoc_md111">Other Tools</a></li>
+<ul><li class="level1"><a href="#autotoc_md106">Overview</a><ul><li class="level2"><a href="#autotoc_md107">Get Valgrind</a></li>
+<li class="level2"><a href="#autotoc_md108">Using Valgrind</a></li>
+<li class="level2"><a href="#autotoc_md109">Memcheck</a></li>
+<li class="level2"><a href="#autotoc_md110">Cachegrind</a></li>
+<li class="level2"><a href="#autotoc_md111">Callgrind</a></li>
+<li class="level2"><a href="#autotoc_md112">Massiv</a></li>
+<li class="level2"><a href="#autotoc_md113">Helgrind</a></li>
+<li class="level2"><a href="#autotoc_md114">Other Tools</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md103"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md106"></a>
 Overview</h1>
 <p>Valgrind is not a single tool but contains a complete tool suite for detecting memory management and threading bugs. It is developed by <a href="https://valgrind.org/info/developers.html">"a loose knit group of developers"</a> and is available under the GNU general public license V2.0 as open source software.</p>
-<h2><a class="anchor" id="autotoc_md104"></a>
+<h2><a class="anchor" id="autotoc_md107"></a>
 Get Valgrind</h2>
 <p>Get it from your OS's package store, most Linux distributions have valgrind available, e.g. via <code>apt install valgrind</code>.</p>
 <p>Alternatively, valgrind can be built from source using the <a href="git://sourceware.org/git/valgrind.git">git repository</a></p>
-<p>To build the cloned code, follow the instructions in the README file that the clone should give you. Alternatively, the following should work: </p><div class="fragment"><div class="line">cd valgrind</div><div class="line">./autogen.sh</div><div class="line">./configure --prefix=...</div><div class="line">make</div><div class="line">make install</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md105"></a>
+<p>To build the cloned code, follow the instructions in the README file that the clone should give you. Alternatively, the following should work: </p><div class="fragment"><div class="line">cd valgrind</div><div class="line">./autogen.sh</div><div class="line">./configure --prefix=...</div><div class="line">make</div><div class="line">make install</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md108"></a>
 Using Valgrind</h2>
 <p>As mentioned before, valgrind contains a set of tools to examine the binaries in a dynamic manner. <em>dynamic</em> means, that the code is actually executed for the test. Valgrind sets up a modified execution environment simulating certain CPU features and memory. Thus, the execution via valgrind is considerably slower than the original executable and may allocate more memory. For big projects, it may be beneficial to deconstruct the binary into smaller chunks for examination.</p>
 <p>The individual tools are described in the following.</p>
-<h2><a class="anchor" id="autotoc_md106"></a>
+<h2><a class="anchor" id="autotoc_md109"></a>
 Memcheck</h2>
 <p>Memcheck, a tools for examining the memory allocation, deallocation and initialization process of the executable. It finds uninitialized variables used e.g. for conditions, buffer overflows, memory leaks etc.</p>
 <p>To execute memcheck, issue the following command:</p>
 <div class="fragment"><div class="line">valgrind --tool=memcheck --trace-children=yes --leak-check=full --track-origins=yes --suppressions=&lt;file&gt; &lt;program&gt;</div></div><!-- fragment --><p>Here, some options are passed to valgrind already, to follow child threads of the main process (<code>trace-children</code>), track the origin of error and leaks (<code>track-origin</code>) and perform extended checks for memory leaks (<code>leak-check</code>). The option <code>tool=memcheck</code> may be skipped, as it is the default option.</p>
 <p>Valgrind can use a suppressions file to suppress known issues and false-positives. This file can be created during an initial execution with the option <code>--gen-suppressions=&lt;file&gt;</code>.</p>
 <p>Valgrind also supports an xml output, which can be parsed by different dashboard tools, e.g. by a jenkins plugin (which is a little buggy, though).</p>
-<h2><a class="anchor" id="autotoc_md107"></a>
+<h2><a class="anchor" id="autotoc_md110"></a>
 Cachegrind</h2>
 <p>Cachegrind is a cache profiler. It performs detailed simulation of the I1, D1 and L2 caches in your CPU and so can accurately pinpoint the sources of cache misses in your code. It identifies the number of cache misses, memory references and instructions executed for each line of source code, with per-function, per-module and whole-program summaries. It is useful with programs written in any language. Cachegrind runs programs about 20&ndash;100x slower than normal.</p>
 <p>It is usable for very small examples only, as the caching behavior gets blurred by too many different memory requests.</p>
-<div class="fragment"><div class="line">valgrind --tool=cachegrind --trace-children=yes &lt;program&gt;</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md108"></a>
+<div class="fragment"><div class="line">valgrind --tool=cachegrind --trace-children=yes &lt;program&gt;</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md111"></a>
 Callgrind</h2>
 <p>Callgrind, by Josef Weidendorfer, is an extension to Cachegrind. It provides all the information that Cachegrind does, plus extra information about callgraphs. It was folded into the main Valgrind distribution in version 3.2.0. Available separately is an amazing visualisation tool, <b>KCachegrind</b>, which gives a much better overview of the data that Callgrind collects; it can also be used to visualise Cachegrind's output.</p>
-<div class="fragment"><div class="line">valgrind --tool=callgrind --trace-children=yes --callgrind-out-file=&lt;file&gt; &lt;program&gt;</div><div class="line">kcachegrind &lt;file&gt;</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md109"></a>
+<div class="fragment"><div class="line">valgrind --tool=callgrind --trace-children=yes --callgrind-out-file=&lt;file&gt; &lt;program&gt;</div><div class="line">kcachegrind &lt;file&gt;</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md112"></a>
 Massiv</h2>
 <p>Massif is a heap profiler. It performs detailed heap profiling by taking regular snapshots of a program's heap. It produces a graph showing heap usage over time, including information about which parts of the program are responsible for the most memory allocations. The graph is supplemented by a text or HTML file that includes more information for determining where the most memory is being allocated. Massif runs programs about 20x slower than normal.</p>
 <p><b>ms_print</b> may be used to analyze the outfile of the massif tool (which is hard to read by humans).</p>
-<div class="fragment"><div class="line">valgrind --tool=massif --trace-children=yes --massif-out-file=&lt;file&gt; &lt;program&gt;</div><div class="line">ms_print &lt;outfile&gt;</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md110"></a>
+<div class="fragment"><div class="line">valgrind --tool=massif --trace-children=yes --massif-out-file=&lt;file&gt; &lt;program&gt;</div><div class="line">ms_print &lt;outfile&gt;</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md113"></a>
 Helgrind</h2>
 <p>Helgrind is a thread debugger which finds data races in multithreaded programs. It looks for memory locations which are accessed by more than one (POSIX p-)thread, but for which no consistently used (pthread_mutex_) lock can be found. Such locations are indicative of missing synchronisation between threads, and could cause hard-to-find timing-dependent problems. It is useful for any program that uses pthreads. It is a somewhat experimental tool, so your feedback is especially welcome here.</p>
-<div class="fragment"><div class="line">valgrind --tool=helgrind --trace-children=yes &lt;program&gt;</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md111"></a>
+<div class="fragment"><div class="line">valgrind --tool=helgrind --trace-children=yes &lt;program&gt;</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md114"></a>
 Other Tools</h2>
 <p>For other contained tools in the valgrind suite, please refer to the <a href="https://valgrind.org/info/tools.html">project website</a> </p>
 </div></div><!-- contents -->
@@ -140,7 +140,7 @@ Other Tools</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="Tools.html">Used Tools</a></li>
+    <li class="navelem"><a class="el" href="index.html">Template Project</a></li><li class="navelem"><a class="el" href="Tools.html">Used Tools</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>

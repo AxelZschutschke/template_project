@@ -88,36 +88,36 @@ $(document).ready(function(){initNavTree('GoogleTest.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md98">Overview</a><ul><li class="level2"><a href="#autotoc_md99">Get GoogleTest</a></li>
-<li class="level2"><a href="#autotoc_md100">Set up CMake Project</a></li>
-<li class="level2"><a href="#autotoc_md101">Creating Tests with GTest</a></li>
-<li class="level2"><a href="#autotoc_md102">Creating Fakes with GMock</a></li>
+<ul><li class="level1"><a href="#autotoc_md101">Overview</a><ul><li class="level2"><a href="#autotoc_md102">Get GoogleTest</a></li>
+<li class="level2"><a href="#autotoc_md103">Set up CMake Project</a></li>
+<li class="level2"><a href="#autotoc_md104">Creating Tests with GTest</a></li>
+<li class="level2"><a href="#autotoc_md105">Creating Fakes with GMock</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md98"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md101"></a>
 Overview</h1>
 <p>GTest and GMock are a c/c++ testing and mocking framework respectively, actively developed and maintained by Google and released under a BSD-3 clause open source license.</p>
 <p>Formerly both project have been developed separately, but have been merged to <em>googletest</em> now. GTest can be used in a header-only manner, while GMock needs some runtime libraries to be linked against the test executables.</p>
-<h2><a class="anchor" id="autotoc_md99"></a>
+<h2><a class="anchor" id="autotoc_md102"></a>
 Get GoogleTest</h2>
 <p>Get it from your OS's package store, most Linux distributions have GoogleTest available, e.g. via <code>apt install googletest</code>.</p>
 <p>One may get GoogleTest as source distribution as well as <a href="https://github.com/google/googletest">git repository</a>, follow the build instructions of the libraries. Here, GoogleTest is downloaded, build and used during project generation automatically, using the CMake ExternalProject module. See the main <em>CMakeLists.txt</em> file:</p>
-<div class="fragment"><div class="line">option( COMPILE_TESTS      &quot;Enable tests&quot;              ON)</div><div class="line"></div><div class="line">include(ExternalProject)</div><div class="line"></div><div class="line">...</div><div class="line">if (COMPILE_TESTS)</div><div class="line">    ... </div><div class="line">    ExternalProject_Add( googletest</div><div class="line">      GIT_REPOSITORY https://github.com/google/googletest.git</div><div class="line">      PREFIX ${CMAKE_CURRENT_BINARY_DIR}/gtest</div><div class="line">      INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}</div><div class="line">      CMAKE_ARGS </div><div class="line">        -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/gtest </div><div class="line">        -DBUILD_SHARED_LIBS=ON</div><div class="line">      )</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md100"></a>
+<div class="fragment"><div class="line">option( COMPILE_TESTS      &quot;Enable tests&quot;              ON)</div><div class="line"></div><div class="line">include(ExternalProject)</div><div class="line"></div><div class="line">...</div><div class="line">if (COMPILE_TESTS)</div><div class="line">    ... </div><div class="line">    ExternalProject_Add( googletest</div><div class="line">      GIT_REPOSITORY https://github.com/google/googletest.git</div><div class="line">      PREFIX ${CMAKE_CURRENT_BINARY_DIR}/gtest</div><div class="line">      INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}</div><div class="line">      CMAKE_ARGS </div><div class="line">        -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/gtest </div><div class="line">        -DBUILD_SHARED_LIBS=ON</div><div class="line">      )</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md103"></a>
 Set up CMake Project</h2>
 <p>For using GoogleTest from a CMake project, test cases / test runner executables need to be defined and backed with source code. Each of the tests is build into and executable and linked against gtest, gmock and other relevant libraries (also the projects target libraries if applicable).</p>
 <p>When adding the test to ctest via <code>add_test()</code>, the tests will be executed and evaluated automatically with a ctest run. Add a command line option for specifying an test report format, e.g. <code>--gtest_output="xml:file.xml"</code>.</p>
-<div class="fragment"><div class="line">option( COMPILE_TESTS      &quot;Enable tests&quot;              ON)</div><div class="line"></div><div class="line">...</div><div class="line">if (COMPILE_TESTS)</div><div class="line">    file( GLOB GTEST_FILES test/unit/*)</div><div class="line">    foreach( FILENAME ${GTEST_FILES} )</div><div class="line">      get_filename_component( TESTNAME ${FILENAME} NAME_WE )</div><div class="line">      link_directories( ${CMAKE_CURRENT_BINARY_DIR}/gtest/lib )</div><div class="line">      add_executable(  ${TESTNAME} ${FILENAME} )</div><div class="line">      add_dependencies( ${TESTNAME} googletest )</div><div class="line">      target_include_directories( ${TESTNAME} </div><div class="line">        PRIVATE </div><div class="line">          ${CMAKE_CURRENT_BINARY_DIR}/gtest/include </div><div class="line">        )</div><div class="line">      target_link_libraries( ${TESTNAME} </div><div class="line">        gtest </div><div class="line">        gmock )</div><div class="line">      add_test( NAME ${TESTNAME} </div><div class="line">        COMMAND ${TESTNAME} --gtest_output=&quot;xml:${TESTPATH}_gtest.xml&quot;)</div><div class="line">    endforeach()</div><div class="line">endif ()</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md101"></a>
+<div class="fragment"><div class="line">option( COMPILE_TESTS      &quot;Enable tests&quot;              ON)</div><div class="line"></div><div class="line">...</div><div class="line">if (COMPILE_TESTS)</div><div class="line">    file( GLOB GTEST_FILES test/unit/*)</div><div class="line">    foreach( FILENAME ${GTEST_FILES} )</div><div class="line">      get_filename_component( TESTNAME ${FILENAME} NAME_WE )</div><div class="line">      link_directories( ${CMAKE_CURRENT_BINARY_DIR}/gtest/lib )</div><div class="line">      add_executable(  ${TESTNAME} ${FILENAME} )</div><div class="line">      add_dependencies( ${TESTNAME} googletest )</div><div class="line">      target_include_directories( ${TESTNAME} </div><div class="line">        PRIVATE </div><div class="line">          ${CMAKE_CURRENT_BINARY_DIR}/gtest/include </div><div class="line">        )</div><div class="line">      target_link_libraries( ${TESTNAME} </div><div class="line">        gtest </div><div class="line">        gmock )</div><div class="line">      add_test( NAME ${TESTNAME} </div><div class="line">        COMMAND ${TESTNAME} --gtest_output=&quot;xml:${TESTPATH}_gtest.xml&quot;)</div><div class="line">    endforeach()</div><div class="line">endif ()</div></div><!-- fragment --><h2><a class="anchor" id="autotoc_md104"></a>
 Creating Tests with GTest</h2>
-<h2><a class="anchor" id="autotoc_md102"></a>
+<h2><a class="anchor" id="autotoc_md105"></a>
 Creating Fakes with GMock</h2>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="Tools.html">Used Tools</a></li>
+    <li class="navelem"><a class="el" href="index.html">Template Project</a></li><li class="navelem"><a class="el" href="Tools.html">Used Tools</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
