@@ -7,30 +7,28 @@
 Document authors: A. Zschutschke
 
 This document is created as template for teaching purposes, please adapt to
-your own project needs.
+your own project needs. Usually, your organisation should supply a Test Strategy 
+document, which acts as basis for the project's \ref TestPlan as well and is based
+on the organisation's \ref TestPolicy document.
 
 Please refer to the [definitions page](\ref Definitions) for details of
-specific key words and phrases.
-
-## Abbreviations
-
-| symbol  | meaning |
-| ------- | ------- |
-| CI      | continuous integration |
-| DEV     | developer (doubles as tester) |
-| NFR     | non functional requirement |
-
+specific key words and phrases and explanation for abbreviations.
 
 ## Introduction
 
 The test documentation gives an overview of test targets, test scope and
 defines and explains the internal notations. Also, an overview of the test
-environment and the test approach is presented.
+environment and the test approach is presented. 
 
 During a release cycle all test related documents are updated according to
 their natural dependency. The [test strategy](\ref TestStrategy) is the most
 stable document (time-wise), as it describes general definitions and the long
-term test approach. The [test plan](\ref TestPlan) will be adapted to new
+term test approach (strategy) of the organisation. In terms of 
+[ISO 29119-2](\ref TestStrategyRef), it reassembles the OT1 (test specification of the
+organisation) on project level and may as well be an exact copy of the test strategy of
+the organisation if applicable.
+
+The [test plan](\ref TestPlan) will be adapted to new
 features and found defects, for the next release while the 
 [test report](\ref TestReport) is virtually subject to change with each new
 build.
@@ -113,7 +111,7 @@ adapted.  Here, methods of continuous testing will be applied to ensure a high
 level of quality of the product while keeping the pace of modern development. 
 
 **Continuos testing** is a pipeline strategy, not bound to dedicated testing
-phases and with different closed feedback loops. [1]
+phases and with different closed feedback loops. [Zimmerer 2019](\ref TestStrategyRef)
 
 ## Legal / Regulations
 
@@ -375,5 +373,7 @@ announcing the issue to users.
 * test manager needs more training
 * new employed testers shall take training XY
 
-# References
-[1] P. Zimmerer, The Future of Testing is Continuous, OOP 2019
+# References {#TestStrategyRef}
+* **ISO/IEC 29119-2**: Software and System Engineering - Software Testing - Part 2: 
+  Test Processes, **2013**
+* **P. Zimmerer**: The Future of Testing is Continuous, OOP **2019**

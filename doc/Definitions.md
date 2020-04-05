@@ -8,6 +8,14 @@ Definitions of certain keywords and phrases used throughout the documentation.
 Partly, these definitions differ slightly from literature as they present the
 projects internal wording.
 
+# Abbreviations
+
+| symbol  | meaning |
+| ------- | ------- |
+| CI      | continuous integration |
+| DEV     | developer (doubles as tester) |
+| NFR     | non functional requirement |
+
 # Definitions
 
 ## architect
