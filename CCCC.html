@@ -88,20 +88,20 @@ $(document).ready(function(){initNavTree('CCCC.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md85">Overview</a><ul><li class="level2"><a href="#autotoc_md86">Get CCCC</a></li>
-<li class="level2"><a href="#autotoc_md87">Using CCCC</a></li>
+<ul><li class="level1"><a href="#autotoc_md86">Overview</a><ul><li class="level2"><a href="#autotoc_md87">Get CCCC</a></li>
+<li class="level2"><a href="#autotoc_md88">Using CCCC</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md85"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md86"></a>
 Overview</h1>
 <p>CCCC, the <em>C and C++ Code Counter</em> is a tool for measuring and reporting code metrics. It is released as a result of a PhD thesis by Tim Littlefair and under the GNU general public license V2.0.</p>
-<h2><a class="anchor" id="autotoc_md86"></a>
+<h2><a class="anchor" id="autotoc_md87"></a>
 Get CCCC</h2>
 <p>Get it from your OS's package store, most Linux distributions have CCCC available, e.g. via <code>apt install cccc</code>.</p>
 <p>Alternatively, the tool can be build manually from its <a href="http://sourceforge.net/projects/cccc">website</a>, following the build instructions.</p>
-<h2><a class="anchor" id="autotoc_md87"></a>
+<h2><a class="anchor" id="autotoc_md88"></a>
 Using CCCC</h2>
 <p>Using CCCC is pretty much straight forward. The tool generates a HTML output containing all relevant code metrics and documentation about the metrics and how they are calculated. The tool mainly needs to get all the sources and include directories presented to work properly.</p>
 <div class="fragment"><div class="line">option( CCCC           &quot;Enable cccc metrics&quot;           OFF)</div><div class="line">if( CCCC )</div><div class="line">  find_program( CCCC_EXECUTABLE NAMES cccc )</div><div class="line">  if( CCCC_EXECUTABLE )</div><div class="line">    file(GLOB CCCC_IN </div><div class="line">      ${CMAKE_CURRENT_SOURCE_DIR} )</div><div class="line">    set(CCCC_INCLUDE_DIRS </div><div class="line">      -I${CMAKE_CURRENT_SOURCE_DIR} </div><div class="line">      -I${CMAKE_CURRENT_SOURCE_DIR}/test/api</div><div class="line">      -I${CMAKE_CURRENT_SOURCE_DIR}/include </div><div class="line">      -I${CMAKE_CURRENT_SOURCE_DIR}/vendor </div><div class="line">      -I${CMAKE_CURRENT_SOURCE_DIR}/examples )</div><div class="line">    set(CCCC_OPTIONS  </div><div class="line">      --lang=c++ )</div><div class="line">    set(CCCC_OUT </div><div class="line">      --outdir=${CMAKE_CURRENT_BINARY_DIR}/cccc </div><div class="line">      --html_outfile=${CMAKE_CURRENT_BINARY_DIR}/cccc/cccc.html )</div><div class="line">    add_custom_target( cccc ALL</div><div class="line">      COMMAND ${CCCC_EXECUTABLE} ${CCCC_OUT} ${CCCC_OPTIONS} ${CCCC_INCLUDE_DIRS} ${CCCC_IN}</div><div class="line">      COMMENT &quot;Running cccc&quot;</div><div class="line">      VERBATIM )</div><div class="line">  else()</div><div class="line">    message( &quot;cccc need to be installed to generate the cccc report&quot; )</div><div class="line">  endif()</div><div class="line">endif()</div></div><!-- fragment --> </div></div><!-- contents -->

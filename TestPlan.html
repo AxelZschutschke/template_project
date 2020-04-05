@@ -88,34 +88,34 @@ $(document).ready(function(){initNavTree('TestPlan.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md36">Overview</a><ul><li class="level2"><a href="#autotoc_md37">Abbreviations</a></li>
-<li class="level2"><a href="#autotoc_md38">Introduction</a></li>
-<li class="level2"><a href="#autotoc_md39">Inspection Specifications / Procedure</a></li>
+<ul><li class="level1"><a href="#autotoc_md37">Overview</a><ul><li class="level2"><a href="#autotoc_md38">Abbreviations</a></li>
+<li class="level2"><a href="#autotoc_md39">Introduction</a></li>
+<li class="level2"><a href="#autotoc_md40">Inspection Specifications / Procedure</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md40">Test Description</a><ul><li class="level2"><a href="#autotoc_md41">Unit Test</a></li>
-<li class="level2"><a href="#autotoc_md42">System Test</a></li>
-<li class="level2"><a href="#autotoc_md43">Explorative Testing</a></li>
-<li class="level2"><a href="#autotoc_md44">Code Coverage</a></li>
-<li class="level2"><a href="#autotoc_md45">Static Code Analysis</a></li>
-<li class="level2"><a href="#autotoc_md46">Memory Check</a></li>
-<li class="level2"><a href="#autotoc_md47">Multi-Thread Check</a></li>
-<li class="level2"><a href="#autotoc_md48">Code Metrics</a></li>
+<li class="level1"><a href="#autotoc_md41">Test Description</a><ul><li class="level2"><a href="#autotoc_md42">Unit Test</a></li>
+<li class="level2"><a href="#autotoc_md43">System Test</a></li>
+<li class="level2"><a href="#autotoc_md44">Explorative Testing</a></li>
+<li class="level2"><a href="#autotoc_md45">Code Coverage</a></li>
+<li class="level2"><a href="#autotoc_md46">Static Code Analysis</a></li>
+<li class="level2"><a href="#autotoc_md47">Memory Check</a></li>
+<li class="level2"><a href="#autotoc_md48">Multi-Thread Check</a></li>
+<li class="level2"><a href="#autotoc_md49">Code Metrics</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md49">System Test / Long-Term Testing</a><ul><li class="level2"><a href="#autotoc_md50">TSC_0001</a></li>
-<li class="level2"><a href="#autotoc_md51">Test Tools</a></li>
+<li class="level1"><a href="#autotoc_md50">System Test / Long-Term Testing</a><ul><li class="level2"><a href="#autotoc_md51">TSC_0001</a></li>
+<li class="level2"><a href="#autotoc_md52">Test Tools</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md52">Appendix</a></li>
+<li class="level1"><a href="#autotoc_md53">Appendix</a></li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md36"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md37"></a>
 Overview</h1>
 <p>Document authors: A. Zschutschke</p>
 <p>This document is created as template for teaching purposes, please adapt to your own project needs.</p>
 <p>Please refer to the <a class="el" href="Definitions.html">definitions page</a> for details of specific key words and phrases.</p>
-<h2><a class="anchor" id="autotoc_md37"></a>
+<h2><a class="anchor" id="autotoc_md38"></a>
 Abbreviations</h2>
 <table class="doxtable">
 <tr>
@@ -127,10 +127,10 @@ Abbreviations</h2>
 <tr>
 <td>NFR </td><td>non functional requirement </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md39"></a>
 Introduction</h2>
 <p>The test plan is based on the <a class="el" href="TestStrategy.html">test strategy</a>, which it translates into concrete test scenarios and time lines. While the test strategy usually is changing only slightly from release to release (representing the learning process of the team and changing requirements and environments during developement), the test plan usually changes significantly per release, as new requirements are implemented or old requirements are signed off.</p>
-<h2><a class="anchor" id="autotoc_md39"></a>
+<h2><a class="anchor" id="autotoc_md40"></a>
 Inspection Specifications / Procedure</h2>
 <p>There are two major reasons for carrying out the software test:</p><ul>
 <li>test if newly introduced functionality is working as expected</li>
@@ -142,9 +142,9 @@ Inspection Specifications / Procedure</h2>
 <li>make the problem visible to everyone as fast as possible (even if fixing is taking some time)</li>
 <li>enable a discussion on how to solve (or document if fixture is not realistic) the issue</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md40"></a>
+<h1><a class="anchor" id="autotoc_md41"></a>
 Test Description</h1>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Unit Test</h2>
 <p>Unit tests shall be implemented for each individual component. The tests themselves should be classified as black box test. This implies, that a tester only needs information about the unit interfaces and does not need to know about the inner structure of the system under test. The tester may be the same person as the developer, as unit tests shall proof that the method provides the desired functionality and does not show unexpected behavior. For implementing the unit test a set of style guides is formulated.</p>
 <h3>Style Guide</h3>
@@ -163,14 +163,14 @@ Unit Test</h2>
 <li>for test code, refer to the code style guide</li>
 <li>test code shall be commented with care</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 System Test</h2>
 <p>(description of individual system tests)</p>
-<h2><a class="anchor" id="autotoc_md43"></a>
+<h2><a class="anchor" id="autotoc_md44"></a>
 Explorative Testing</h2>
 <p>Explorative testing is a special kind of manual testing without a pre-described test proceduce. It has been found highly advantageous. A tester sets up a test-environment as close to production as possible and documents all hardware and software components in the environment. Then the tester starts a timeboxed test, mostly 90 minutes, where the tester can perform any operations on the system and records the actions and observations. If the observation is not equal to the expectation, the test is accounted for as failure.</p>
 <p>It makes sense to set up the mood of the tester to either "intruder" or "developer" for the test, so the tester either tries to prove that the system works as expected or tries to break the system intentionally.</p>
-<h2><a class="anchor" id="autotoc_md44"></a>
+<h2><a class="anchor" id="autotoc_md45"></a>
 Code Coverage</h2>
 <p>The unit tests are run multiple times with different build options. One build is carried out with code instrumentation for measuring code coverage during unit test. This measure describes how much code has been executed in total during the unit test. A project should strive for 100 % code (line) coverage and a high branch coverage (as high as 100 % for security or mission critical code, see <a href="https://en.wikipedia.org/wiki/Automotive_Safety_Integrity_Level">ASIL</a>). Here the following coverage levels are set as target:</p>
 <ul>
@@ -179,23 +179,23 @@ Code Coverage</h2>
 </ul>
 <p>The reports are generated using gcc, gcov and lcov for compiling the coverage reports.</p>
 <p>Combining unit tests and test coverage metrics blurrs the boundary of black box and white box testing. This is not a problem in general, as the tester may be informed about whitespots in the test by this method. Care should be taken, as untrained testers tend to "only increase the coverage" while not creating strict tests anymore.</p>
-<h2><a class="anchor" id="autotoc_md45"></a>
+<h2><a class="anchor" id="autotoc_md46"></a>
 Static Code Analysis</h2>
 <p>Static code analysis is used as a first step of code review, not replacing the code review of other developers and testers. It assists the developer and the reviewer for standard tasks (e.g. are all class members initialized?) and simple declare / define / use checks. Static code analysis is classified as white-box test/</p>
 <p>Here, cppcheck is utilized for this. The tool creates an xml report for the source base. Unfortunately, the tool has some issues with header-only libraries. Thus the result must be handled with care. The code coverage of the unit test also forces the cppcheck tool to really examine all code of the header only parts of the library.</p>
 <p>Supressions may be introduced with care and shall be reviewed for each release.</p>
-<h2><a class="anchor" id="autotoc_md46"></a>
+<h2><a class="anchor" id="autotoc_md47"></a>
 Memory Check</h2>
 <p>The tool valgrind/memcheck is utilized for a special unit test configuration and execution. It creates an jailed environment and replaces standard libraries with its own tracing tools. It is a powerfull tool for detecting unitialized variables and memory leaks as well as buffer overflows.</p>
 <p>Supressions may be introduced with care and shall be reviewed for each release.</p>
-<h2><a class="anchor" id="autotoc_md47"></a>
+<h2><a class="anchor" id="autotoc_md48"></a>
 Multi-Thread Check</h2>
 <p>The tool valgrind/helgrind is utilized for a special unit test configuration and execution. It creates a jailed environment and replaces standard libraries with its own tracing tools. It is a powerfull tool for detecting potential race conditions, dead locks or unprotected thread interactions.</p>
 <p>Supressions may be introduced with care and shall be reviewed for each release.</p>
-<h2><a class="anchor" id="autotoc_md48"></a>
+<h2><a class="anchor" id="autotoc_md49"></a>
 Code Metrics</h2>
 <p>The tool CCCC is utilized to generate a report about overall code metrics, e.g. lines of code, cyclomatic complexity, lines of comment / lines of code etc. These numbers, while beeing less expressive if viewed in isolation, might help during refactoring and review. For example could a refactoring reduce the complexity of the code and increase the number of comments. The numbers are useful for comparing source files and projects (of the same language and standard) against each other.</p>
-<h1><a class="anchor" id="autotoc_md49"></a>
+<h1><a class="anchor" id="autotoc_md50"></a>
 System Test / Long-Term Testing</h1>
 <p>The system test of the project is partially carried out in a manual fashion. This has various reasons:</p><ul>
 <li>high effort of automating the test in different environments</li>
@@ -203,13 +203,13 @@ System Test / Long-Term Testing</h1>
 <li>manual tests are more likely to find new defects (compared to automated/regression tests)</li>
 </ul>
 <p>The system test shall cover the following scenarios:</p>
-<h2><a class="anchor" id="autotoc_md50"></a>
+<h2><a class="anchor" id="autotoc_md51"></a>
 TSC_0001</h2>
 <p>(description of test scenarios)</p>
-<h2><a class="anchor" id="autotoc_md51"></a>
+<h2><a class="anchor" id="autotoc_md52"></a>
 Test Tools</h2>
 <p>For system tests, special tester tools are developed and described in the following (description of testers)</p>
-<h1><a class="anchor" id="autotoc_md52"></a>
+<h1><a class="anchor" id="autotoc_md53"></a>
 Appendix</h1>
 <p>(copy-paste script snippets for testing and evaluation of test results here) </p>
 </div></div><!-- contents -->

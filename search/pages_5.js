@@ -4,5 +4,6 @@ var searchData=
   ['template_20project',['Template Project',['../index.html',1,'']]],
   ['test_20documentation',['Test Documentation',['../TestDocumentation.html',1,'index']]],
   ['test_20plan',['Test Plan',['../TestPlan.html',1,'TestDocumentation']]],
+  ['test_20policy',['Test Policy',['../TestPolicy.html',1,'TestDocumentation']]],
   ['test_20strategy',['Test Strategy',['../TestStrategy.html',1,'TestDocumentation']]]
 ];
